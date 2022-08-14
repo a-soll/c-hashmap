@@ -1,6 +1,9 @@
 #ifndef HASH_H
 #define HASH_H
 
+#include <stdbool.h>
+#include <stdlib.h>
+
 typedef struct Bucket {
     void *data;
     int key;

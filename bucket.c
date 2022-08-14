@@ -1,5 +1,3 @@
-#include <stdbool.h>
-#include <stdio.h>
 #include "bucket.h"
 
 Bucket *init_bucket(int key, void *data) {
