@@ -7,6 +7,8 @@ include(GNUInstallDirs)
 
 add_library(c-hashmap SHARED bucket.c)
 
+configure_file(c-hashmap.pc.in c-hashmap.pc @ONLY)
+
 set_target_properties(c-hashmap PROPERTIES VERSION ${PROJECT_VERSION})
 set_target_properties(c-hashmap PROPERTIES PUBLIC_HEADER bucket.h)
 
