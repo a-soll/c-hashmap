@@ -6,7 +6,7 @@
 
 typedef struct Bucket {
     void *data;
-    int key;
+    unsigned long key;
     struct Bucket *next;
 } Bucket;
 
