@@ -1,6 +1,6 @@
 #include "bucket.h"
 
-Bucket *init_bucket(int key, void *data) {
+Bucket *init_bucket(unsigned long key, void *data) {
     Bucket *bucket = (Bucket *)malloc(sizeof(Bucket));
     bucket->key = key;
     bucket->data = data;
@@ -8,7 +8,7 @@ Bucket *init_bucket(int key, void *data) {
     return bucket;
 }
 
-int hashCode(int key, int size) {
+int hashCode(unsigned long key, int size) {
     return key % size;
 }
 
@@ -55,7 +55,7 @@ void *table_iterate(Table *table, bool first_iterate) {
     return item;
 }
 
-void table_delete_item(Table *table, int key) {
+void table_delete_item(Table *table, unsigned long key) {
     int index = hashCode(key, table->size);
 
     while (table->buckets[index] != NULL) {
@@ -81,7 +81,7 @@ void table_resize(Table *table) {
     }
 }
 
-void *table_search(Table *table, int key) {
+void *table_search(Table *table, unsigned long key) {
     int index = hashCode(key, table->size);
 
     while (table->buckets[index] != NULL) {
@@ -108,7 +108,7 @@ Table *table_init(int size) {
     return table;
 }
 
-void table_insert(Table *table, int key, void *data) {
+void table_insert(Table *table, unsigned long key, void *data) {
     int index = hashCode(key, table->size);
     Bucket *bucket = init_bucket(key, data);
     Bucket *prev_bucket;
